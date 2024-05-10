@@ -58,3 +58,12 @@ The following endpoints are available in the API:
 ## Data Source
 
 The data used in this project is sourced from the San Francisco government's Mobile Food Facility Permit dataset. You can find the dataset [here](https://data.sfgov.org/api/views/rqzj-sfat/rows.csv).
+
+## Github Actions
+
+This repo has two Github actions that will be run on every push:
+
+- **Pylint**
+- **Black**
+
+The code itself has already been formatted using Black.
