@@ -67,3 +67,32 @@ This repo has two Github actions that will be run on every push:
 - **Black**
 
 The code itself has already been formatted using Black.
+
+## Example Code
+
+If you'd like to give it a try using Python, here is some sample code to retrieve the closest 3 food trucks using an address:
+
+```python
+import requests
+
+url = "http://localhost:8000/food_trucks/closest/"
+
+user_address = "90 BROADWAY, San Francisco, CA"
+params = {"address": user_address}
+
+response = requests.get(url, params=params)
+
+if response.status_code == 200:
+    print("Closest Food Trucks:")
+    for idx, truck in enumerate(response.json()):
+        print(f"Truck {idx + 1}:")
+        print(f"Applicant: {truck['applicant']}")
+        print(f"Food Items: {truck['food_items']}")
+        print(f"Address: {truck['address']}")
+        print(f"Latitude: {truck['latitude']}")
+        print(f"Longitude: {truck['longitude']}")
+        print()
+else:
+    print(f"Failed to retrieve closest food trucks: {response.text}")
+```
+    
