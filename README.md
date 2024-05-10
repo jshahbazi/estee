@@ -8,7 +8,7 @@ Welcome to the Estee Food Truck API! This API is designed to provide users with 
 - **Get Food Truck by ID**: Fetch details of a specific food truck using its unique ID.
 - **Search Food Trucks by Name**: Search for food trucks by their names.
 - **Create, Update, and Delete Food Trucks**: Perform CRUD operations on food truck data.
-- **Find Closest Food Trucks**: Locate the closest food trucks based on user's address.
+- **Find Closest Food Trucks**: Locate the closest food trucks based on the user's address.
 
 ## Setup
 
