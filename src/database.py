@@ -4,7 +4,7 @@ from pydantic import BaseModel
 import csv
 from contextlib import contextmanager
 
-
+# Most of these fields are probably useless, but data is data
 class FoodTruck(BaseModel):
     location_id: Optional[int]
     applicant: str
