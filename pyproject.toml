@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "estee"
+version = "0.1.0"
+description = ""
+authors = ["John Shahbazian <jshahbazi@gmail.com>"]
+readme = "README.md"
+include = ["main.py", "tests/", "pyproject.toml"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.111.0"
+uvicorn = "^0.29.0"
+requests = "^2.31.0"
+pytest = "^8.2.0"
+geopy = "^2.4.1"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
