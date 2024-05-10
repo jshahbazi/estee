@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, Query, status
 from fastapi.responses import JSONResponse
-from database import Database, FoodTruck
+from .database import Database, FoodTruck
 import os
 from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
@@ -8,10 +8,14 @@ from geopy.distance import geodesic
 app = FastAPI()
 db = Database("food_trucks.db")
 
-CSV_FILE = "./Mobile_Food_Facility_Permit.csv"
+CSV_FILE = "./data/Mobile_Food_Facility_Permit.csv"
 DB_FILE = "food_trucks.db"
 
 if not os.path.exists(DB_FILE):
+    if not os.path.exists(CSV_FILE):
+        raise FileNotFoundError(
+            f"File {CSV_FILE} not found. Please download the file from https://data.sfgov.org/api/views/rqzj-sfat/rows.csv and place it in the data directory."
+        )
     db.create_database(CSV_FILE)
 
 geolocator = Nominatim(user_agent="address_finder")

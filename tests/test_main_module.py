@@ -1,15 +1,14 @@
 import pytest
 from fastapi.testclient import TestClient
-from main import app, Database
-from database import FoodTruck
-from main import db, CSV_FILE, DB_FILE
+from src.main import app, Database, db, CSV_FILE, DB_FILE
+from src.database import FoodTruck
 import os
 import random
 
 
 # Test database file path
 TEST_DB_FILE = "test_food_trucks.db"
-CSV_FILE = "./Mobile_Food_Facility_Permit.csv"
+CSV_FILE = "./data/Mobile_Food_Facility_Permit.csv"
 
 
 @pytest.fixture(scope="session", autouse=True)
