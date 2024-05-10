@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "estee"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
 authors = ["John Shahbazian <jshahbazi@gmail.com>"]
 readme = "README.md"
