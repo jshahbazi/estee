@@ -17,13 +17,13 @@ To set up the project locally, follow these steps:
 1. **Clone the Repository**: Clone this repository to your local machine using the following command:
 
    ```bash
-   git clone https://github.com/your-username/estee-food-truck-api.git
+   git clone https://github.com/jshahbazi/estee.git
    ```
 
 2. **Install Dependencies**: Navigate to the project directory and install the required dependencies using Poetry:
 
     ```bash
-    cd estee-food-truck-api
+    cd estee
     poetry install
     ````
 
@@ -54,7 +54,6 @@ The following endpoints are available in the API:
 - **GET /food_trucks/{location_id}/applicant_fooditems**: Get details of a specific food truck along with its food items.
 - **GET /food_trucks/closest/**: Find the closest food trucks based on user's address.
 
-For detailed usage instructions and parameters for each endpoint, please refer to the API documentation.
 
 ## Data Source
 
