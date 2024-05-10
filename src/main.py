@@ -1,9 +1,12 @@
+import os
+
 from fastapi import FastAPI, HTTPException, Query, status
 from fastapi.responses import JSONResponse
-from .database import Database, FoodTruck
-import os
 from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
+
+from .database import Database, FoodTruck
+
 
 app = FastAPI()
 db = Database("food_trucks.db")

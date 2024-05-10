@@ -1,8 +1,9 @@
-import sqlite3
-from typing import List, Optional
-from pydantic import BaseModel
-import csv
+import csv, sqlite3
 from contextlib import contextmanager
+from typing import List, Optional
+
+from pydantic import BaseModel
+
 
 # Most of these fields are probably useless, but data is data
 class FoodTruck(BaseModel):
@@ -88,9 +89,13 @@ class Database:
                         prior_permit=row.get("PriorPermit", ""),
                         expiration_date=row.get("ExpirationDate", ""),
                         location=row.get("Location", ""),
-                        fire_prevention_districts=to_int(row.get("Fire Prevention Districts", "")),
+                        fire_prevention_districts=to_int(
+                            row.get("Fire Prevention Districts", "")
+                        ),
                         police_districts=to_int(row.get("Police Districts", "")),
-                        supervisor_districts=to_int(row.get("Supervisor Districts", "")),
+                        supervisor_districts=to_int(
+                            row.get("Supervisor Districts", "")
+                        ),
                         zip_codes=to_int(row.get("Zip Codes", "")),
                         neighborhoods_old=to_int(row.get("Neighborhoods (old)", "")),
                     )

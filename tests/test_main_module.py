@@ -1,9 +1,10 @@
+import os, random
+
 import pytest
 from fastapi.testclient import TestClient
+
 from src.main import app, Database, db, CSV_FILE, DB_FILE
 from src.database import FoodTruck
-import os
-import random
 
 
 # Test database file path
@@ -124,11 +125,13 @@ def test_read_food_truck_not_found():
     assert response.status_code == 404
     assert response.json()["detail"] == "Food truck not found"
 
+
 # Test non-existent food truck name
 def test_read_food_truck_by_name_not_found():
     response = client.get("/food_trucks/by_name/", params={"name": "Non-existent Name"})
     assert response.status_code == 404
     assert response.json()["detail"] == "Food truck not found"
+
 
 # Test update food truck not found
 def test_update_food_truck_not_found():
@@ -139,10 +142,12 @@ def test_update_food_truck_not_found():
     assert response.status_code == 404
     assert response.json()["detail"] == "Food truck not found"
 
+
 # Test DELETE /food_trucks/{location_id}
 def test_delete_food_truck():
     response = client.delete(f"/food_trucks/{location_id}")
     assert response.status_code == 200
+
 
 # Test food truck not found
 def test_read_applicant_fooditems_not_found():
@@ -150,9 +155,12 @@ def test_read_applicant_fooditems_not_found():
     assert response.status_code == 404
     assert response.json()["detail"] == "Food truck not found"
 
+
 # Test GET /food_trucks/closest/
 def test_find_closest_food_trucks():
-    response = client.get("/food_trucks/closest/?address=90 BROADWAY, San Francisco, CA")
+    response = client.get(
+        "/food_trucks/closest/?address=90 BROADWAY, San Francisco, CA"
+    )
     assert response.status_code == 200
     assert response.json() == [
         {
